@@ -1,0 +1,230 @@
+/* ========== CONTENEDOR PRINCIPAL ========== */
+.calculator {
+  width: 320px;
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  font-family: var(--sans);
+}
+
+/* ========== DISPLAY ========== */
+.display {
+  background: var(--code-bg);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 15px;
+  text-align: right;
+  border: 1px solid var(--border);
+}
+
+.display span {
+  display: block;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-h);
+  letter-spacing: 1px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+/* ========== KEYPAD ========== */
+.keypad {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ========== FILAS DE BOTONES ========== */
+.button-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+/* Row especial para la fila 5 (números + punto + igual) */
+.button-row.row-5 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.button-row.row-5 .btn-equals {
+  grid-column: span 1;
+}
+
+/* ========== BOTONES BASE ========== */
+button {
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 15px;
+  font-family: var(--sans);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* ========== BOTONES NÚMEROS ========== */
+.btn {
+  background: var(--accent-bg);
+  color: var(--text-h);
+  border: 1px solid var(--accent-border);
+}
+
+.btn:hover {
+  background: rgba(170, 59, 255, 0.2);
+  border-color: var(--accent);
+}
+
+.btn:active {
+  background: rgba(170, 59, 255, 0.3);
+}
+
+/* ========== BOTONES OPERADORES ========== */
+.btn-operation {
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+}
+
+.btn-operation:hover {
+  background: #9428d9;
+  box-shadow: 0 0 10px rgba(170, 59, 255, 0.4);
+}
+
+.btn-operation:active {
+  background: #8820c8;
+}
+
+/* ========== BOTONES ESPECIALES ========== */
+.btn-special {
+  background: #ff6b6b;
+  color: white;
+  font-weight: 700;
+}
+
+.btn-special:hover {
+  background: #ee5a52;
+  box-shadow: 0 0 10px rgba(255, 107, 107, 0.4);
+}
+
+.btn-special:active {
+  background: #e84645;
+}
+
+/* ========== BOTÓN IGUAL ========== */
+.btn-equals {
+  background: #51cf66;
+  color: white;
+  font-weight: 700;
+  grid-column: span 1;
+}
+
+.btn-equals:hover {
+  background: #40c057;
+  box-shadow: 0 0 10px rgba(81, 207, 102, 0.4);
+}
+
+.btn-equals:active {
+  background: #37b24d;
+}
+
+/* ========== BOTÓN PORCENTAJE ========== */
+.btn-percent {
+  background: #ffa500;
+  color: white;
+  font-weight: 700;
+}
+
+.btn-percent:hover {
+  background: #ff9500;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.4);
+}
+
+.btn-percent:active {
+  background: #ff8500;
+}
+
+/* ========== MODO OSCURO ========== */
+@media (prefers-color-scheme: dark) {
+  .calculator {
+    background: var(--bg);
+    border-color: var(--border);
+  }
+
+  .display {
+    background: var(--code-bg);
+    border-color: var(--border);
+  }
+
+  .display span {
+    color: var(--text-h);
+  }
+
+  .btn {
+    background: rgba(192, 132, 252, 0.15);
+    color: var(--text-h);
+    border-color: rgba(192, 132, 252, 0.5);
+  }
+
+  .btn:hover {
+    background: rgba(192, 132, 252, 0.25);
+    border-color: rgba(192, 132, 252, 0.7);
+  }
+
+  .btn-operation {
+    background: #c084fc;
+  }
+
+  .btn-operation:hover {
+    background: #b366f0;
+    box-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
+  }
+
+  .btn-special {
+    background: #ff6b6b;
+  }
+
+  .btn-equals {
+    background: #51cf66;
+  }
+
+  .btn-percent {
+    background: #ffa500;
+  }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 480px) {
+  .calculator {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .display span {
+    font-size: 24px;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .button-row {
+    gap: 6px;
+  }
+
+  .keypad {
+    gap: 6px;
+  }
+}

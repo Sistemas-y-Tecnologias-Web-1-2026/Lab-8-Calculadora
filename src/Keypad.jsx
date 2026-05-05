@@ -6,7 +6,7 @@ import Line5Buttons from './Line5Buttons'
 
 export default function Keypad({ onNumber, onOp, onEquals, onClear, changeSign }) {
   return (
-    <div>
+    <div className="keypad">
       <Line1Buttons onOp={onOp} onClear={onClear} changeSign={changeSign} />
       <Line2Buttons onNumber={onNumber} onOp={onOp} />
       <Line3Buttons onNumber={onNumber} onOp={onOp} />

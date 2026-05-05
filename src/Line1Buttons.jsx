@@ -2,11 +2,11 @@ import Button from './Button'
 
 export default function Line1Buttons({ onOp, onClear, changeSign }) {
   return (
-    <div>
-      <Button label="C" onClick={onClear} />
-      <Button label="+/-" onClick={changeSign} />
-      <Button label="%" onClick={() => onOp('%')} />
-      <Button label="/" onClick={() => onOp('/')} />
+    <div className="button-row">
+      <Button label="C" className="btn-special" onClick={onClear} />
+      <Button label="+/-" className="btn" onClick={changeSign} />
+      <Button label="%" className="btn-percent" onClick={() => onOp('%')} />
+      <Button label="/" className="btn-operation" onClick={() => onOp('/')} />
     </div> 
   )
 }
