@@ -1,6 +1,5 @@
 import Display from './Display'
-import Numbers from './Numbers'
-import Operations from './Operations'
+import Keypad from './Keypad'
 import { useCalculator } from './hooks/useCalculator'
 
 export default function Calculator() {
@@ -9,8 +8,7 @@ export default function Calculator() {
   return (
     <div>
       <Display value={display} />
-      <Numbers onNumber={inputNumber} />
-      <Operations onOp={inputOperation} onEquals={equals} onClear={clear} />
+      <Keypad onNumber={inputNumber} onOp={inputOperation} onEquals={equals} onClear={clear} />
     </div>
   )
 }
