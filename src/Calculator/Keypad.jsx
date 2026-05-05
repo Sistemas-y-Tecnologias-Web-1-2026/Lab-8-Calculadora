@@ -1,8 +1,8 @@
-import Line1Buttons from './Line1Buttons'
-import Line2Buttons from './Line2Buttons'
-import Line3Buttons from './Line3Buttons'
-import Line4Buttons from './Line4Buttons'
-import Line5Buttons from './Line5Buttons'
+import Line1Buttons from './Keypad/Line1Buttons'
+import Line2Buttons from './Keypad/Line2Buttons'
+import Line3Buttons from './Keypad/Line3Buttons'
+import Line4Buttons from './Keypad/Line4Buttons'
+import Line5Buttons from './Keypad/Line5Buttons'
 
 export default function Keypad({ onNumber, onOp, onEquals, onClear, changeSign }) {
   return (
