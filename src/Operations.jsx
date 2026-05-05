@@ -6,7 +6,10 @@ export default function Operations({ onOp, onEquals }) {
       <Button label="+" onClick={() => onOp('+')} />
       <Button label="-" onClick={() => onOp('-')} />
       <Button label="*" onClick={() => onOp('*')} />
+      <Button label="/" onClick={() => onOp('/')} />
+      <Button label="MOD" onClick={() => onOp('%')} />
       <Button label="=" onClick={onEquals} />
+      <Button label="C" onClick={() => onOp('C')} />
     </div>
   )
 }

@@ -32,6 +32,27 @@ export const useCalculator = () => {
     if (operation === '+') result = prev + Number(display)
     if (operation === '-') result = prev - Number(display)
     if (operation === '*') result = prev * Number(display)
+    if (operation === '/') {
+      if (Number(display) === 0) {
+        setDisplay('ERROR')
+        return
+      }
+      result = prev / Number(display)
+    }
+    if (operation === '%') {
+      if (Number(display) === 0) {
+        setDisplay('ERROR')
+        return
+      }
+      result = prev % Number(display)
+    }
+
+    if (operation === 'C') {
+      setDisplay('0')
+      setPrev(null)
+      setOperation(null)
+      return
+    }
 
     if (result < 0 || result > 999999999) {
       setDisplay('ERROR')
