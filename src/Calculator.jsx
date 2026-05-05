@@ -1,7 +1,7 @@
 import Display from './Display'
 import Numbers from './Numbers'
 import Operations from './Operations'
-import { useCalculator } from '../hooks/useCalculator'
+import { useCalculator } from './hooks/useCalculator'
 
 export default function Calculator() {
   const { display, inputNumber, inputOperation, equals } = useCalculator()
