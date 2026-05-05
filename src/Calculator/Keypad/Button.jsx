@@ -1,7 +1,7 @@
-export default function Button ({ label, onClick, className }) {
+export default function Button ({ label, onClick, className, imageSrc }) {
   return (
     <button type="button" className={className} onClick={onClick}>
-      {label}
+      {imageSrc ? <img src={imageSrc} alt={label} /> : label}
     </button>
   )
 }
