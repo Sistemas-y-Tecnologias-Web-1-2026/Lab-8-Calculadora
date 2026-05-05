@@ -6,7 +6,27 @@ export const useCalculator = () => {
   const [operation, setOperation] = useState(null)
   const [reset, setReset] = useState(false)
 
+  const calculate = (a, b, op) => {
+    if (op === '+') return a + b
+    if (op === '-') return a - b
+    if (op === '*') return a * b
+    if (op === '/') return b === 0 ? 'ERROR' : a / b
+    if (op === '%') return b === 0 ? 'ERROR' : a % b
+  }
+
+  const handleResult = (result) => {
+    if (result === 'ERROR' || result < 0 || result > 999999999) {
+      setDisplay('ERROR')
+      return false
+    }
+
+    setDisplay(String(result).slice(0, 9))
+    return true
+  }
+
   const inputNumber = (num) => {
+    if (display === 'ERROR') return
+
     if (reset) {
       setDisplay(num)
       setReset(false)
@@ -19,7 +39,22 @@ export const useCalculator = () => {
   }
 
   const inputOperation = (op) => {
-    setPrev(Number(display))
+    if (display === 'ERROR') return
+
+    const current = Number(display)
+
+    // 🔥 operaciones encadenadas
+    if (operation && prev !== null && !reset) {
+      const result = calculate(prev, current, operation)
+
+      const ok = handleResult(result)
+      if (!ok) return
+
+      setPrev(result)
+    } else {
+      setPrev(current)
+    }
+
     setOperation(op)
     setReset(true)
   }
@@ -27,42 +62,29 @@ export const useCalculator = () => {
   const equals = () => {
     if (!operation || prev === null) return
 
-    let result
+    const current = Number(display)
+    const result = calculate(prev, current, operation)
 
-    if (operation === '+') result = prev + Number(display)
-    if (operation === '-') result = prev - Number(display)
-    if (operation === '*') result = prev * Number(display)
-    if (operation === '/') {
-      if (Number(display) === 0) {
-        setDisplay('ERROR')
-        return
-      }
-      result = prev / Number(display)
-    }
-    if (operation === '%') {
-      if (Number(display) === 0) {
-        setDisplay('ERROR')
-        return
-      }
-      result = prev % Number(display)
-    }
+    const ok = handleResult(result)
+    if (!ok) return
 
-    if (operation === 'C') {
-      setDisplay('0')
-      setPrev(null)
-      setOperation(null)
-      return
-    }
-
-    if (result < 0 || result > 999999999) {
-      setDisplay('ERROR')
-      return
-    }
-
-    setDisplay(String(result).slice(0, 9))
     setPrev(null)
     setOperation(null)
+    setReset(true) // 🔥 importante
   }
 
-  return { display, inputNumber, inputOperation, equals }
+  const clear = () => {
+    setDisplay('0')
+    setPrev(null)
+    setOperation(null)
+    setReset(false)
+  }
+
+  return {
+    display,
+    inputNumber,
+    inputOperation,
+    equals,
+    clear
+  }
 }
