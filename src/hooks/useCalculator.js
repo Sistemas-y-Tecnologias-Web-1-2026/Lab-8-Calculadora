@@ -80,11 +80,27 @@ export const useCalculator = () => {
     setReset(false)
   }
 
+  const changeSign = () => {
+    if (display === 'ERROR') return
+
+    // si ya es negativo → quitar el signo
+    if (display.startsWith('-')) {
+      setDisplay(display.slice(1))
+      return
+    }
+
+    // agregar signo si hay espacio
+    if (display.length < 9) {
+      setDisplay('-' + display)
+    }
+  }
+
   return {
     display,
     inputNumber,
     inputOperation,
     equals,
-    clear
+    clear,
+    changeSign
   }
 }

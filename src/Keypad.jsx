@@ -4,14 +4,14 @@ import Line3Buttons from './Line3Buttons'
 import Line4Buttons from './Line4Buttons'
 import Line5Buttons from './Line5Buttons'
 
-export default function Keypad() {
+export default function Keypad({ onNumber, onOp, onEquals, onClear, changeSign }) {
   return (
     <div>
-        <Line1Buttons onOp={inputOperation} onClear={clear} />
-        <Line2Buttons onNumber={inputNumber} onOp={inputOperation} />
-        <Line3Buttons onNumber={inputNumber} onOp={inputOperation} />
-        <Line4Buttons onNumber={inputNumber} onOp={inputOperation} />
-        <Line5Buttons onNumber={inputNumber} onEquals={equals} />
+      <Line1Buttons onOp={onOp} onClear={onClear} changeSign={changeSign} />
+      <Line2Buttons onNumber={onNumber} onOp={onOp} />
+      <Line3Buttons onNumber={onNumber} onOp={onOp} />
+      <Line4Buttons onNumber={onNumber} onOp={onOp} />
+      <Line5Buttons onNumber={onNumber} onEquals={onEquals} />
     </div>
   )
 }
