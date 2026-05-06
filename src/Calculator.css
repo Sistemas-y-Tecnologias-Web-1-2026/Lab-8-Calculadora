@@ -40,13 +40,13 @@
 /* ========== FILAS DE BOTONES ========== */
 .button-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 8px;
 }
 
 /* Row especial para la fila 5 (números + punto + igual) */
 .button-row.row-5 {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .button-row.row-5 .btn-equals {
@@ -54,105 +54,118 @@
 }
 
 /* ========== BOTONES BASE ========== */
-button {
+.button-row button {
   border: none;
+  background: transparent;
   border-radius: 8px;
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  padding: 15px;
+  padding: 0;
+  width: 100%;
+  aspect-ratio: 1;
   font-family: var(--sans);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-button:focus-visible {
+.button-row button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
-button:active {
+.button-row button:active {
   transform: scale(0.95);
+}
+
+.button-row button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 /* ========== BOTONES NÚMEROS ========== */
 .btn {
-  background: var(--accent-bg);
+  background: transparent;
   color: var(--text-h);
-  border: 1px solid var(--accent-border);
+  border: none;
 }
 
 .btn:hover {
-  background: rgba(170, 59, 255, 0.2);
-  border-color: var(--accent);
+  background: transparent;
 }
 
 .btn:active {
-  background: rgba(170, 59, 255, 0.3);
+  background: transparent;
 }
 
 /* ========== BOTONES OPERADORES ========== */
 .btn-operation {
-  background: var(--accent);
-  color: white;
+  background: transparent;
+  color: var(--text-h);
   font-weight: 700;
 }
 
 .btn-operation:hover {
-  background: #9428d9;
-  box-shadow: 0 0 10px rgba(170, 59, 255, 0.4);
+  background: transparent;
+  box-shadow: none;
 }
 
 .btn-operation:active {
-  background: #8820c8;
+  background: transparent;
 }
 
 /* ========== BOTONES ESPECIALES ========== */
 .btn-special {
-  background: #ff6b6b;
-  color: white;
+  background: transparent;
+  color: var(--text-h);
   font-weight: 700;
 }
 
 .btn-special:hover {
-  background: #ee5a52;
-  box-shadow: 0 0 10px rgba(255, 107, 107, 0.4);
+  background: transparent;
+  box-shadow: none;
 }
 
 .btn-special:active {
-  background: #e84645;
+  background: transparent;
 }
 
 /* ========== BOTÓN IGUAL ========== */
 .btn-equals {
-  background: #51cf66;
-  color: white;
+  background: transparent;
+  color: var(--text-h);
   font-weight: 700;
   grid-column: span 1;
 }
 
 .btn-equals:hover {
-  background: #40c057;
-  box-shadow: 0 0 10px rgba(81, 207, 102, 0.4);
+  background: transparent;
+  box-shadow: none;
 }
 
 .btn-equals:active {
-  background: #37b24d;
+  background: transparent;
 }
 
 /* ========== BOTÓN PORCENTAJE ========== */
 .btn-percent {
-  background: #ffa500;
-  color: white;
+  background: transparent;
+  color: var(--text-h);
   font-weight: 700;
 }
 
 .btn-percent:hover {
-  background: #ff9500;
-  box-shadow: 0 0 10px rgba(255, 165, 0, 0.4);
+  background: transparent;
+  box-shadow: none;
 }
 
 .btn-percent:active {
-  background: #ff8500;
+  background: transparent;
 }
 
 /* ========== MODO OSCURO ========== */
@@ -172,35 +185,33 @@ button:active {
   }
 
   .btn {
-    background: rgba(192, 132, 252, 0.15);
     color: var(--text-h);
-    border-color: rgba(192, 132, 252, 0.5);
+    background: transparent;
   }
 
   .btn:hover {
-    background: rgba(192, 132, 252, 0.25);
-    border-color: rgba(192, 132, 252, 0.7);
+    background: transparent;
   }
 
   .btn-operation {
-    background: #c084fc;
+    background: transparent;
   }
 
   .btn-operation:hover {
-    background: #b366f0;
-    box-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
+    background: transparent;
+    box-shadow: none;
   }
 
   .btn-special {
-    background: #ff6b6b;
+    background: transparent;
   }
 
   .btn-equals {
-    background: #51cf66;
+    background: transparent;
   }
 
   .btn-percent {
-    background: #ffa500;
+    background: transparent;
   }
 }
 
@@ -215,8 +226,7 @@ button:active {
     font-size: 24px;
   }
 
-  button {
-    padding: 12px;
+  .button-row button {
     font-size: 16px;
   }
 
