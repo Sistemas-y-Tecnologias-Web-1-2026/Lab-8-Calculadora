@@ -1,5 +1,5 @@
 .calculator {
-  width: 660px;
+  width: 540px;
   margin: 20px auto;
   padding: 20px;
   background: #40a0dc;
@@ -12,7 +12,7 @@
 .display {
   background: #87c5ee;
   border-radius: 10px;
-  padding: 60px;
+  padding: 50px;
   margin-bottom: 15px;
   text-align: right;
   border: 1px solid var(--border);
