@@ -7,12 +7,9 @@ export default function Calculator() {
   const calculator = useCalculator()
 
   return (
-    <main className="app-shell">
-      <p className="eyebrow">Lab 8 React</p>
-      <section className="calculator" aria-label="Calculadora con teclado de botones">
-        <Display value={calculator.display} />
-        <Keypad {...calculator} />
-      </section>
-    </main>
+    <div className="calculator" aria-label="Calculadora con teclado de botones">
+      <Display value={calculator.display} />
+      <Keypad {...calculator} />
+    </div>
   )
 }
