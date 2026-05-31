@@ -1,4 +1,4 @@
-import githubLogo from '../github.webp'
+import githubLogo from './github.webp'
 
 export default function GitHubLink() {
   return (
