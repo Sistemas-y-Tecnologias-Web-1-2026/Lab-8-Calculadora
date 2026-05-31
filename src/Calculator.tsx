@@ -1,5 +1,5 @@
 import Display from './Calculator/Display'
-import GitHubLink from './Calculator/GitHubLink'
+import GitHubLink from './GitHubLink'
 import Keypad from './Calculator/Keypad'
 import { useCalculator } from './Calculator/hooks/useCalculator'
 import './Calculator.css'
