@@ -1,6 +1,6 @@
 # Calculadora React
 
-Calculadora construida con React, TypeScript, Vite y Bun para el Lab 8.
+Calculadora construida con React, TypeScript, Vite y Bun para el Proyecto 2.
 
 ## Instalar
 
@@ -19,8 +19,6 @@ bun run dev
 ```bash
 bun run test
 ```
-
-El script `test` también queda disponible para `npm test`, aunque el lockfile del proyecto es `bun.lock`.
 
 ## Correr lint
 
