@@ -1,18 +1,42 @@
-# React + Vite
+# Calculadora React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Calculadora construida con React, TypeScript, Vite y Bun para el Lab 8.
 
-Currently, two official plugins are available:
+## Instalar
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+bun install
+```
 
-## React Compiler
+## Correr la aplicación
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+```bash
+bun run dev
+```
 
-Note: This will impact Vite dev & build performances.
+## Correr los tests
 
-## Expanding the ESLint configuration
+```bash
+bun run test
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+El script `test` también queda disponible para `npm test`, aunque el lockfile del proyecto es `bun.lock`.
+
+## Correr lint
+
+```bash
+bun run lint
+```
+
+ESLint revisa archivos `js`, `jsx`, `ts` y `tsx`, prohíbe punto y coma y limita líneas a 120 caracteres.
+
+## Correr Storybook
+
+```bash
+bun run storybook
+```
+
+## Funcionalidad
+
+Incluye suma, resta, multiplicación, división, módulo, decimal, `+/-`, igualdad, límite de 9 caracteres y estado
+`ERROR` para resultados negativos, división entre cero o resultados mayores a `999999999`.
